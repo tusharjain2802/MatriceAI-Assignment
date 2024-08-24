@@ -3,6 +3,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 
 require('dotenv').config();
 
@@ -24,7 +25,8 @@ app.use(cors({
         return callback(null, true);
     },
     credentials: true,
-    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
+    methods: 'GET,POST,PUT,DELETE',
+    allowedHeaders: 'Content-Type,Authorization',  // Specify allowed headers
 }));
 
 app.use(bodyParser.json());
@@ -32,6 +34,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.use('/api/auth', authRoutes);
+app.use('/api/admin', adminRoutes);
 
 app.get('/', async (req, res) => {
     res.send('Welcome to Matrice.ai');
