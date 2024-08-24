@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
-const rateListRoutes = require('./routes/rateListRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 require('dotenv').config();
 
@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-app.use('/api', rateListRoutes);
+app.use('/api/auth', authRoutes);
 
 app.get('/', async (req, res) => {
     res.send('Welcome to Matrice.ai');
