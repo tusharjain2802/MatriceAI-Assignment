@@ -1,6 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "../Pages/Home";
+import Home from "../Pages/HomePage";
 import PrivateLayout from "../Layout/PrivateLayout";
+import LoginPage from "../Pages/LoginPage";
+import RegisterPage from "../Pages/RegisterPage";
 
 
 function AllRoutes() {
@@ -11,6 +13,22 @@ function AllRoutes() {
         element={
           <PrivateLayout>
             <Home />
+          </PrivateLayout>
+        }
+      />
+      <Route
+        path="/login"
+        element={
+          <PrivateLayout>
+            <LoginPage />
+          </PrivateLayout>
+        }
+      />
+      <Route
+        path="/register"
+        element={
+          <PrivateLayout>
+            <RegisterPage />
           </PrivateLayout>
         }
       />
