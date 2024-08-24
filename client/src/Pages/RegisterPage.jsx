@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { register } from '../utils/auth';
+import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +9,8 @@ const RegisterPage = () => {
     password: '',
     designation: 'team member',
   });
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -17,7 +21,12 @@ const RegisterPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+    try {
+      await register(formData);
+      navigate('/login');
+    } catch (err) {
+      setError(err.message || 'Failed to register. Please try again.');
+    }
   };
 
   return (
@@ -76,6 +85,7 @@ const RegisterPage = () => {
               <option value="team member">Team Member</option>
             </select>
           </div>
+          {error && <p className="text-red-500">{error}</p>}
           <button
             type="submit"
             className="w-full p-2 bg-[#6a5fdf] rounded text-[#ffffff] hover:bg-[#10163a] transition duration-300"
