@@ -3,6 +3,7 @@ const { protect, admin } = require('../middleware/authMiddleware');
 const {
   getPendingUsers,
   approveUser,
+  denyUser,
   removeUser,
   createProject,
   updateProject,
@@ -18,6 +19,7 @@ const router = express.Router();
 router.get('/users/pending', protect, admin, getPendingUsers);
 router.get('/users/allowed', protect, admin, getAllowedUsers);
 router.put('/users/approve/:id', protect, admin, approveUser);
+router.put('/users/deny/:id', protect, admin, denyUser);
 router.delete('/users/:id', protect, admin, removeUser);
 
 router.post('/projects', protect, admin, createProject);

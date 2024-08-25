@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const adminRoutes = require('./routes/adminRoutes');
-
+const projectRoutes = require('./routes/projectRoutes')
 require('dotenv').config();
 
 const app = express();
@@ -35,6 +35,7 @@ app.use(express.static('public'));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/projects', projectRoutes);
 
 app.get('/', async (req, res) => {
     res.send('Welcome to Matrice.ai');

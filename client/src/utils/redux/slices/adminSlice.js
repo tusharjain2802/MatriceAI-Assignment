@@ -10,9 +10,13 @@ export const fetchPendingUsers = createAsyncThunk('admin/fetchPendingUsers', asy
   }
 });
 
-export const fetchAllowedUsers = createAsyncThunk('admin/fetchAllowedUsers', async () => {
-  const response = await api.get('/admin/users/allowed');
-  return response.data;
+export const fetchAllowedUsers = createAsyncThunk('admin/fetchAllowedUsers', async (_, thunkAPI) => {
+  try {
+    const response = await api.get('/admin/users/allowed');
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
 });
 
 
@@ -20,6 +24,7 @@ export const adminSlice = createSlice({
   name: 'admin',
   initialState: {
     pendingUsers: [],
+    allowedUsers: [],
     isLoading: false,
     error: null,
   },
@@ -30,6 +35,7 @@ export const adminSlice = createSlice({
       })
       .addCase(fetchPendingUsers.fulfilled, (state, action) => {
         state.pendingUsers = action.payload;
+        state.error = null;
         state.isLoading = false;
       })
       .addCase(fetchPendingUsers.rejected, (state, action) => {

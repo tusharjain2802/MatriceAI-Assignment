@@ -65,7 +65,7 @@ const AdminHomePage = () => {
               </tr>
             </thead>
             <tbody>
-              {(showAllowedUsers ? allowedUsers : pendingUsers).map((user) => (
+              {(showAllowedUsers ? allowedUsers : pendingUsers)?.map((user) => (
                 <tr key={user._id} className="border-b border-[#6a5fdf]">
                   <td className="py-3 px-6">{user.name}</td>
                   <td className="py-3 px-6">{user.email}</td>

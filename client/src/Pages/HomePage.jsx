@@ -6,8 +6,6 @@ import AdminHomePage from './AdminHomePage';
 
 const Home = () => {
   const { user, role } = useSelector((state) => state.auth);
-  console.log(user);
-  
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,7 +18,6 @@ const Home = () => {
   if (role === 'admin') {
     return <AdminHomePage />;
   }
-
 
   if (!user?.isApproved) {
     return (

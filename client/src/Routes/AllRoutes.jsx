@@ -4,6 +4,7 @@ import LoginPage from "../Pages/LoginPage";
 import RegisterPage from "../Pages/RegisterPage";
 import HomePage from "../Pages/HomePage";
 import ProtectedRoute from "../utils/ProtectedRoute";
+import ProjectPage from "../Pages/ProjectPage";
 
 
 function AllRoutes() {
@@ -16,6 +17,16 @@ function AllRoutes() {
             <ProtectedRoute>
               <PrivateLayout>
               <HomePage />
+              </PrivateLayout>
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/projects"
+          element={
+            <ProtectedRoute>
+              <PrivateLayout>
+              <ProjectPage />
               </PrivateLayout>
             </ProtectedRoute>
           }

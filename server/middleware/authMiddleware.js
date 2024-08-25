@@ -20,7 +20,7 @@ exports.protect = async (req, res, next) => {
   }
 };
 
-exports.admin = (req, res, next) => {
+exports.admin = (req, res, next) => {  
   if (req.user && req.user.designation === 'admin') {
     next();
   } else {
@@ -41,5 +41,13 @@ exports.teamMember = (req, res, next) => {
     next();
   } else {
     res.status(403).json({ message: 'Not authorized as team member' });
+  }
+};
+
+exports.isApproved = (req, res, next) => {
+  if (req.user && req.user.isApproved === true) {
+    next();
+  } else {
+    res.status(403).json({ message: 'Not an approved member' });
   }
 };
