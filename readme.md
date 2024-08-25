@@ -69,6 +69,13 @@ node app.js
 
 <!-- SYSTEM DESIGN -->
 
+### Credentials to login as admin
+- Email - tusharjain2802@gmail.com
+- Password - 1234
+
+### Video Demo Link
+- GDrive: https://drive.google.com/file/d/10c3VOKNWtZg3dKYhC144y7Y6D-8FIl6L/view?usp=sharing
+
 ### System Design
 - Backend Architecture
 The backend is built using Node.js and Express.js, connected to a MongoDB database. The architecture follows a RESTful API pattern with JWT authentication for secure and persistent user sessions. Role-based middleware ensures that only authorized users can access specific routes and perform certain actions.

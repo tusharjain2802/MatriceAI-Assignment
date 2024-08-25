@@ -53,12 +53,20 @@ const Header = () => {
             )}
           </>
         ) : (
+          <div className='flex gap-6'>
           <Link
             to="/login"
             className="font-poppins text-[#6a5fdf] hover:text-[#ffffff] transition duration-300"
           >
             Login
           </Link>
+          <Link
+            to="/register"
+            className="font-poppins text-[#6a5fdf] hover:text-[#ffffff] transition duration-300"
+          >
+            Register
+          </Link>
+          </div>
         )}
       </div>
     </header>
