@@ -16,6 +16,7 @@ connectDB();
 
 const allowedOrigins = [
     'http://localhost:5173',
+    'https://matriceai-assignment-6dnd.onrender.com/'
 ];
 
 app.use(cors({
