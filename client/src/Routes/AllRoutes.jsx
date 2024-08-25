@@ -6,6 +6,8 @@ import HomePage from "../Pages/HomePage";
 import ProtectedRoute from "../utils/ProtectedRoute";
 import ProjectPage from "../Pages/ProjectPage";
 import TaskPage from "../Pages/TaskPage";
+import DeadlinesPage from "../Pages/DeadlinesPage";
+import TaskDeadlinesPage from "../Pages/TaskDeadlinesPage";
 
 
 function AllRoutes() {
@@ -38,6 +40,26 @@ function AllRoutes() {
             <ProtectedRoute>
               <PrivateLayout>
               <TaskPage />
+              </PrivateLayout>
+            </ProtectedRoute>
+          }
+        />
+          <Route
+          path="/deadlines"
+          element={
+            <ProtectedRoute>
+              <PrivateLayout>
+              <DeadlinesPage />
+              </PrivateLayout>
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/taskDeadlines/:projectId"
+          element={
+            <ProtectedRoute>
+              <PrivateLayout>
+              <TaskDeadlinesPage />
               </PrivateLayout>
             </ProtectedRoute>
           }
