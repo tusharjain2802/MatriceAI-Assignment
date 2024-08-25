@@ -11,6 +11,15 @@ exports.getPendingUsers = async (req, res) => {
   }
 };
 
+exports.getAllowedUsers = async (req, res) => {
+  try {
+    const users = await User.find({ isApproved: true });
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
 exports.approveUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);

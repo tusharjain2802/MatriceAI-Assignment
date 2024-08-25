@@ -10,11 +10,13 @@ const {
   updateTask,
   getProjects,
   getProjectById,
+  getAllowedUsers
 } = require('../controllers/adminController');
 
 const router = express.Router();
 
 router.get('/users/pending', protect, admin, getPendingUsers);
+router.get('/users/allowed', protect, admin, getAllowedUsers);
 router.put('/users/approve/:id', protect, admin, approveUser);
 router.delete('/users/:id', protect, admin, removeUser);
 

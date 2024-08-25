@@ -3,7 +3,7 @@ const User = require('../models/User');
 
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: '30d',
+    expiresIn: '1d',
   });
 };
 
@@ -47,6 +47,7 @@ exports.authUser = async (req, res) => {
       name: user.name,
       email: user.email,
       designation: user.designation,
+      isApproved:user.isApproved,
       token: generateToken(user._id),
     });
   } else {

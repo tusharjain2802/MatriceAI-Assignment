@@ -6,6 +6,7 @@ export const login = createAsyncThunk('auth/login', async (credentials, thunkAPI
     try {
         const response = await apiLogin(credentials.email, credentials.password);
         return response;
+
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message || 'Failed to login');
     }
@@ -26,6 +27,7 @@ const initialState = {
     email:null,
     token: null,
     role: null,
+    isApproved:false,
     isLoading: false,
     error: null,
 };
@@ -40,6 +42,7 @@ export const authSlice = createSlice({
             state.email = null;
             state.token = null;
             state.role = null;
+            state.isApproved=false;
         },
         setAuthData(state, action) {
             state.user = action.payload.user;
@@ -55,11 +58,12 @@ export const authSlice = createSlice({
                 state.error = null;
             })
             .addCase(login.fulfilled, (state, action) => {
-                const payload = action.payload;
+                const payload = action.payload;                
                 state.user = payload.name;
                 state.token = payload.token;
                 state.role = payload.designation;
                 state.email = payload.email;
+                state.isApproved=payload.isApproved;
                 state.isLoading = false;
                 state.error = null;
             })
@@ -74,8 +78,8 @@ export const authSlice = createSlice({
             .addCase(register.fulfilled, (state, action) => {
                 const { user } = action.payload;
                 state.user = user;
-                state.token = null;  // Assuming no token is returned on registration
-                state.role = user.designation;  // Assuming the role is stored as `designation`
+                state.token = null; 
+                state.role = user.designation;  
                 state.isLoading = false;
                 state.error = null;
             })
