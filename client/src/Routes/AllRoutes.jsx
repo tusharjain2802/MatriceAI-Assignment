@@ -5,6 +5,7 @@ import RegisterPage from "../Pages/RegisterPage";
 import HomePage from "../Pages/HomePage";
 import ProtectedRoute from "../utils/ProtectedRoute";
 import ProjectPage from "../Pages/ProjectPage";
+import TaskPage from "../Pages/TaskPage";
 
 
 function AllRoutes() {
@@ -27,6 +28,16 @@ function AllRoutes() {
             <ProtectedRoute>
               <PrivateLayout>
               <ProjectPage />
+              </PrivateLayout>
+            </ProtectedRoute>
+          }
+        />
+           <Route
+          path="/tasks"
+          element={
+            <ProtectedRoute>
+              <PrivateLayout>
+              <TaskPage />
               </PrivateLayout>
             </ProtectedRoute>
           }

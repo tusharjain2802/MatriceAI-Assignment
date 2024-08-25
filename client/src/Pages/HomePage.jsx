@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast';
 import AdminHomePage from './AdminHomePage';
 
 const Home = () => {
-  const { user, role } = useSelector((state) => state.auth);
+  const { user, role, isApproved } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const Home = () => {
     return <AdminHomePage />;
   }
 
-  if (!user?.isApproved) {
+  if (!isApproved) {
     return (
       <div className="bg-[#262c48] min-h-screen text-[#ffffff] font-poppins p-8 flex justify-center items-center">
         <h1 className="text-4xl font-anton text-[#6a5fdf]">

@@ -5,12 +5,12 @@ const User = require('../models/User');
 const getProjects = async (req, res) => {
   try {
     let projects; 
-           
+
     if (req.user.designation === 'admin') {
       projects = await Project.find().populate('teamLeader teamMembers');
       console.log(projects);
       
-    } else if (req.user.designation === 'team leader') {
+    } else if (req.user.designation === 'project manager') {
       projects = await Project.find({ teamLeader: req.user._id }).populate('teamLeader teamMembers');
     } else {
       projects = await Project.find({ teamMembers: req.user._id }).populate('teamLeader teamMembers');

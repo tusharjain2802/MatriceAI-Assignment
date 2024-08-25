@@ -48,14 +48,15 @@ const ProjectPage = () => {
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project) => (
+        {projects.length>0 ? projects.map((project) => (
           <ProjectCard
             key={project._id}
             project={project}
             isAdmin={role === 'admin'}
             onRefresh={fetchProjects}
           />
-        ))}
+        )) : <>
+        No projects to show</>}
       </div>
 
       {showAddProjectModal && (

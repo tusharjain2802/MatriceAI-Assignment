@@ -5,6 +5,8 @@ const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const projectRoutes = require('./routes/projectRoutes')
+const taskRoutes = require('./routes/taskRoutes');
+
 require('dotenv').config();
 
 const app = express();
@@ -36,6 +38,7 @@ app.use(express.static('public'));
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/projects', projectRoutes);
+app.use('/api/tasks', taskRoutes);
 
 app.get('/', async (req, res) => {
     res.send('Welcome to Matrice.ai');
