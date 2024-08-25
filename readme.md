@@ -7,10 +7,10 @@
 The Project Management System is designed to simplify project management by providing role-based access to administrators, project managers, and team members. Each user type has specific rights to manage and view projects, tasks, and deadlines. The system features robust JWT authentication and session management, ensuring secure and persistent access to the platform.
 
 ### Built With
-[][React-url]
-[![Tailwind CSS][TailwindCSS.com]][TailwindCSS-url]
-[![Node.js][Node.js]][Nodejs-url]
-[![MongoDB][MongoDB.com]][MongoDB-url]
+- React
+- Tailwind CSS
+- Node.js
+- MongoDB
 
 ### Prerequisites
 Before you begin, ensure you have met the following requirements:
