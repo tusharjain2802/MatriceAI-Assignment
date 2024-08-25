@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getAuthToken } from './auth';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_URL, // Replace with your backend URL
+  baseURL: import.meta.env.VITE_BACKEND_URL,
 });
 
 api.interceptors.request.use(
