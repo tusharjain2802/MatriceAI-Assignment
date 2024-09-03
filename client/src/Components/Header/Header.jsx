@@ -20,7 +20,7 @@ const Header = () => {
     <header className="bg-[#10163a] text-[#ffffff] flex justify-between items-center p-4">
       <Link to="/">
         <div className="text-3xl font-anton text-white">
-          Matrice.AI
+          ProManage
         </div>
       </Link>
       <nav className="flex space-x-8">

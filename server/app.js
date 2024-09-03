@@ -32,7 +32,7 @@ app.use('/api/tasks', taskRoutes);
 app.use('/api/deadlines', deadlineRoutes);
 
 app.get('/', async (req, res) => {
-    res.send('Welcome to Matrice.ai');
+    res.send('Welcome to ProManage');
 });
 
 app.listen(process.env.PORT || 5000, function () {
